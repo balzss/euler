@@ -7,11 +7,8 @@
 
 function isPrime(n) {
     for (let i = 3; i < Math.sqrt(n); i += 2) {
-        if (n % i === 0) {
-            return false;
-        }
+        if (n % i === 0) return false;
     }
-
     return true;
 }
 
@@ -23,12 +20,14 @@ function isInteresting(n) {
 }
 
 let sum = 0;
+let last = 0;
 
-for (let i = 2; i < 1000; i += 4) {
+// 1 and 4 are left out this way so the real solution is this + 5
+for (let i = 2; i < 10000000; i += 4) {
     if (isInteresting(i)) {
         console.log(i);
         sum += i;
     }
 }
 
-// console.log(sum + 5);
+console.log(sum + 5);
